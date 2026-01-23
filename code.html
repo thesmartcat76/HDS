@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            HDS
+        </title>
+    </head>
+    <body>
+        <script>
+            sessionStorage.setItem("codebox", document.getElementById("codebox"));
+            </script>
+        <style>
+            html{
+                background-color: beige;
+            }
+            #codebox{
+                font-family: monospace;
+                font-size: 16px;
+                background-color: #778899;
+                height: auto;
+                width: auto;
+                min-height: 566px;
+                min-width: 1000px;
+                field-sizing: content;
+            }
+            </style>
+        <script>
+            let codebox = document.getElementById("codebox");
+            function move(page){
+                window.location.href = String(page)
+            };
+            </script>
+        <h1>Get coding!</h1>
+        <button onclick="move('nav.html');">Navigation</button><br><br>
+        <button onclick="runCode();">Run Code</button><br><br>
+        <button onclick="clearCode();">Clear Code</button><br><br>
+        <textarea id="codebox"></textarea>>
+        <script src="code.js"></script>
+    </body>
+</html>
