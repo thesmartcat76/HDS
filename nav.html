@@ -4,18 +4,15 @@
         <title>
             HDS Nav
         </title>
+        <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <style>
-            html{
-                background-color: beige;
-            }
-        </style>
-        <script>
-            function move(page){
-                window.location.href = String(page)
-            };
-        </script>
+        <script src="script.js"></script>
+        <div class="topbar">
+            <div id="auth-status"></div>
+            <button id="sign-in-btn">Sign In</button>
+        </div>
+
         <h1>Navigation</h1>
         <button onclick="move('index.html');">Home</button>
         <button onclick="move('code.html')">Code</button>

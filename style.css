@@ -9,8 +9,16 @@ button{
     cursor: pointer;
     color: rgb(200, 0, 255);
     border-radius: 30%;
+}#codebox{
+    font-family: monospace;
+    font-size: 16px;
+    background-color: #778899;
+    height: auto;
+    width: auto;
+    min-height: 566px;
+    min-width: 1000px;
+    field-sizing: content;
 }
-
 .topbar{
     display:flex;
     align-items:center;
