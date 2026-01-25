@@ -18,5 +18,60 @@
         <h1>Navigation</h1>
         <button onclick="move('index.html');">Home</button>
         <button onclick="move('code.html')">Code</button>
+
+        <div id="signin-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" id="signin-close">&times;</span>
+                <h2>Sign In</h2>
+                <form id="signin-form">
+                    <label>Username
+                        <input type="text" id="username" name="username" required>
+                    </label>
+                    <label>Password
+                        <input type="password" id="password" name="password" required>
+                    </label>
+                    <button type="submit">Sign In</button>
+                </form>
+                <p><a href="#" id="forgot-password-link">Forgot Password?</a></p>
+            </div>
+        </div>
+
+        <div id="signup-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" id="signup-close">&times;</span>
+                <h2>Sign Up</h2>
+                <form id="signup-form">
+                    <label>Username
+                        <input type="text" id="signup-username" name="username" required>
+                    </label>
+                    <label>Password
+                        <input type="password" id="signup-password" name="password" required>
+                    </label>
+                    <label>Confirm Password
+                        <input type="password" id="signup-confirm" name="confirm" required>
+                    </label>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="reset-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" id="reset-close">&times;</span>
+                <h2>Reset Password</h2>
+                <form id="reset-form">
+                    <label>Username
+                        <input type="text" id="reset-username" name="username" required>
+                    </label>
+                    <label>New Password
+                        <input type="password" id="reset-password" name="password" required>
+                    </label>
+                    <label>Confirm New Password
+                        <input type="password" id="reset-confirm" name="confirm" required>
+                    </label>
+                    <button type="submit">Reset Password</button>
+                </form>
+            </div>
+        </div>
     </body>
 </html>
