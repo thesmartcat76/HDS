@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f629a3">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>HDS — Kids Programming Language</title>
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo">HDS</div>
+    <div class="logo-sub">Kids Programming Language</div>
+  </div>
+  <div class="spacer"></div>
+  <button class="btn btn-example" onclick="loadExample()">📂 Example</button>
+  <button class="btn btn-docs"    onclick="toggleDocs()">📖 Docs</button>
+  <button class="btn btn-clear"   onclick="clearOutput()">✕ Clear</button>
+  <button class="btn btn-run"     onclick="runCode()">▶ Run <kbd>F5</kbd></button>
+</header>
+
+<main>
+  <div class="editor-panel">
+    <div class="panel-header">
+      <span class="panel-dot" style="background:#f629a3"></span>
+      editor — main.hds
+    </div>
+    <div class="editor-wrap">
+      <div class="line-numbers" id="lineNumbers">1</div>
+      <textarea id="editor" spellcheck="false" autocorrect="off" autocapitalize="off"
+        placeholder="# Write your HDS code here..."></textarea>
+    </div>
+  </div>
+
+  <div class="output-panel">
+    <div class="panel-header">
+      <span class="panel-dot" style="background:#000"></span>
+      output
+    </div>
+    <div id="output"></div>
+  </div>
+
+  <div class="statusbar" id="statusbar">HDS v1.0 — Ready</div>
+</main>
+
+<!-- Docs panel — filled dynamically by app.js from SYNTAX config -->
+<div class="docs-panel" id="docsPanel"></div>
+
+<!-- 1. Interpreter (contains SYNTAX config + HDS.run()) -->
+<script src="src/hds-interpreter.js"></script>
+<!-- 2. App UI logic -->
+<script src="src/app.js"></script>
+
+</body>
+</html>

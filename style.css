@@ -1,0 +1,279 @@
+/* ── HDS UI Styles ─────────────────────────────────
+   Follows the project's beige / pink / black palette.
+   To change colours, edit the :root variables below.
+   ──────────────────────────────────────────────── */
+
+:root {
+  --bg:          beige;
+  --bg2:         #f5f0e0;
+  --bg3:         #ede8d5;
+  --border:      #000000;
+  --pink:        #f629a3;
+  --text:        #000000;
+  --muted:       #555555;
+  --error:       #cc0000;
+  --success:     #007700;
+  --warn:        #886600;
+  --gutter:      #888888;
+  --editor-bg:   #1a1a2e;
+  --editor-fg:   #e8e8e8;
+  --editor-line: #2a2a3e;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background-color: beige; }
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg);
+  color: var(--text);
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--bg2);
+  border-bottom: 2px solid var(--border);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+h1 { text-align: center; }
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--pink);
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 0 #000;
+}
+.logo-sub {
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-top: -2px;
+}
+
+.spacer { flex: 1; }
+
+/* ── BUTTONS ── */
+.btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 7px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  letter-spacing: 0.5px;
+  color: #000000;
+  background-color: #f629a3;
+  border: #000000 solid 2px;
+}
+.btn:hover  { opacity: 0.82; }
+.btn:active { transform: scale(0.97); }
+
+.btn-clear,
+.btn-docs {
+  background-color: #fdd9ef;
+  color: #000;
+  border: #000000 solid 2px;
+}
+
+kbd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1px 5px;
+  color: var(--muted);
+  margin-left: 4px;
+}
+
+/* ── MAIN LAYOUT ── */
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr auto; }
+  .output-panel { border-left: none; border-top: 2px solid var(--border); }
+}
+
+/* ── EDITOR PANEL ── */
+.editor-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 2px solid var(--border);
+}
+
+.panel-header {
+  background: var(--bg3);
+  border-bottom: 2px solid var(--border);
+  padding: 6px 14px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.panel-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.editor-wrap {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.line-numbers {
+  padding: 16px 10px 16px 0;
+  min-width: 48px;
+  text-align: right;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #666;
+  background: var(--editor-line);
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-right: 2px solid var(--border);
+}
+
+#editor {
+  flex: 1;
+  background: var(--editor-bg);
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--editor-fg);
+  padding: 16px;
+  caret-color: var(--pink);
+  tab-size: 2;
+  overflow: auto;
+  white-space: pre;
+}
+#editor::selection { background: rgba(246,41,163,0.25); }
+
+/* ── OUTPUT PANEL ── */
+.output-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+#output {
+  flex: 1;
+  padding: 16px;
+  font-size: 0.82rem;
+  line-height: 1.8;
+  overflow-y: auto;
+  background: var(--bg2);
+}
+#output:empty::before {
+  content: "// Run your HDS program to see output here...";
+  color: var(--muted);
+  font-style: italic;
+}
+
+.out-line  { display: block; animation: fadeIn 0.12s ease; }
+.out-print { color: #000; }
+.out-error { color: var(--error); font-weight: 700; }
+.out-error::before { content: "✗ "; }
+.out-ok    { color: var(--success); font-weight: 700; }
+.out-sep   { color: #bbb; user-select: none; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── STATUS BAR ── */
+.statusbar {
+  grid-column: 1 / -1;
+  background-color: #f629a3;
+  color: #000000;
+  border: #000000 solid;
+  border-width: 2px 0 0 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 4px 16px;
+  text-align: center;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.statusbar.error { background-color: #ffaaaa; border-color: #cc0000; }
+.statusbar.ok    { background-color: #aaffaa; border-color: #007700; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar       { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: var(--bg3); }
+::-webkit-scrollbar-thumb { background: var(--pink); border: 1px solid #000; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: #c0007a; }
+
+/* ── DOCS PANEL ── */
+.docs-panel {
+  position: fixed;
+  right: 16px; bottom: 40px;
+  background: var(--bg2);
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  padding: 16px;
+  font-size: 0.75rem;
+  width: 300px;
+  max-height: 380px;
+  overflow-y: auto;
+  z-index: 100;
+  display: none;
+  box-shadow: 4px 4px 0 #000;
+}
+.docs-panel.open { display: block; }
+.docs-panel h3 {
+  color: var(--pink);
+  margin-bottom: 10px;
+  font-size: 0.82rem;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  padding-bottom: 6px;
+}
+.docs-panel code {
+  color: #a0007a;
+  background: var(--bg3);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+.docs-panel .doc-item { margin-bottom: 10px; line-height: 1.5; }
+.docs-panel .doc-item small { color: var(--muted); display: block; margin-top: 2px; }
