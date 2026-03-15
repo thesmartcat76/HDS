@@ -1,29 +1,11 @@
-# HDS — Kids Programming Language
+# HDS — Hot Dawg Script
 
-A simple, fun, kid-friendly programming language that runs entirely in the browser as a PWA (Progressive Web App). No server needed. Works on Windows, Mac, Linux, and Chromebook.
+A simple, kid-friendly programming language that runs entirely in the browser as a PWA (Progressive Web App). No server needed. Works on Windows and Mac.
 
-## 🚀 Try it
-
-Host the files on any static server (GitHub Pages, Netlify, etc.) and open in Chrome. You'll get an **"Install app"** prompt to add it as a desktop app.
-
-## 📁 Project Structure
-
-```
-hds/
-├── index.html          ← App shell (HTML + layout only)
-├── manifest.json       ← PWA install config
-├── sw.js               ← Service worker (offline support)
-├── icon-192.png        ← App icon
-├── icon-512.png        ← App icon (large)
-└── src/
-    ├── hds-interpreter.js  ← ✏️  THE LANGUAGE ENGINE
-    ├── app.js              ← UI logic (editor, output, docs)
-    └── style.css           ← All styles
-```
-
+#
 ## ✏️ Changing the Syntax
 
-Open `src/hds-interpreter.js` and edit the `SYNTAX` object at the very top of the file. Every keyword in the language can be renamed freely:
+Open `hds-interpreter.js` and edit the `SYNTAX` object at the very top of the file. Every keyword in the language can be renamed freely:
 
 ```js
 const SYNTAX = {
@@ -107,13 +89,6 @@ HDS.run(src, line => console.log(line));
 // Access the current keyword config:
 console.log(HDS.SYNTAX.print); // "print"
 ```
-
-## 🌐 Deploying to GitHub Pages
-
-1. Push this folder to a GitHub repository
-2. Go to **Settings → Pages**
-3. Set source to **Deploy from branch → main → / (root)**
-4. Your app will be live at `https://yourusername.github.io/repo-name`
 
 ## 📄 License
 
