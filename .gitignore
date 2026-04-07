@@ -1,4 +1,2 @@
-*.log
-.DS_Store
-thumbs.db
+# Ignore Mac system files
 .DS_Store
